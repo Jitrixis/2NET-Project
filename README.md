@@ -11,7 +11,7 @@ Les serveurs de la société n'ont aucun logiciel pour s'occupée des plats pris
 Soyez prudent, l'UX est très importante.
 
 ## Ce qui est attendue
-**Usage de C#, WPF et Entity Framework**, vous devez implémenter les fonctionnalités suivantes.
+**En utilisant C#, WPF et Entity Framework**, vous devez implémenter les fonctionnalités suivantes.
 
 Votre application dois : 
 * Possédez une interface graphique globale affichant : 
