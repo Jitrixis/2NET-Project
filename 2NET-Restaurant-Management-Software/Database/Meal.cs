@@ -11,6 +11,6 @@ namespace _2NET_Restaurant_Management_Software.Database
 
         public int Price { get; set; }
 
-        public virtual List<Table> Tables { get; set; }
+        public virtual List<Bill> Bill { get; set; }
     }
 }

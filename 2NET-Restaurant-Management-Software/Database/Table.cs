@@ -11,10 +11,6 @@ namespace _2NET_Restaurant_Management_Software.Database
 
         public int Chair_number { get; set; }
 
-        public virtual List<Meal> Meals { get; set; }
-
-        public int WaiterId { get; set; }
-
-        public virtual Waiter Waiter { get; set; }
+        public virtual List<Bill> Bills { get; set; }
     }
 }
