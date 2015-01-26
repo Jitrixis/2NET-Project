@@ -24,11 +24,257 @@
 	
 	  <div class="reveal">
 		<div class="slides">
-			<section>Single Horizontal Slide</section>
-			<section>
-				<section>Vertical Slide 1</section>
-				<section>Vertical Slide 2</section>
-			</section>
+		<section>
+					<h1>Wikidata</h1>
+					<a href="https://commons.wikimedia.org/wiki/File:Wikidata-logo.svg"><img height="200" src="img/Wikidata-logo.svg" /></a>
+					<p><small>Par <a href="https://www.wikidata.org/wiki/User:Tpt">Tpt</a></small></p>
+					<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></p>
+				</section>
+
+				<section>
+					<h2>Spoiler</h2>
+					<ul>
+						<li>Wikidata ?</li>
+						<li>Le cœur : les déclarations</li>
+						<li>Quelques outils</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Wikidata ?</h1>
+				</section>
+
+				<section>
+					<h2>Définition</h2>
+					<ul>
+						<li>Une base de connaissance</li>
+						<li class="fragment">collaborative (basée sur MediaWiki),</li>
+						<li class="fragment">libre (licence CC 0),</li>
+						<li class="fragment">multilingue,</li>
+						<li class="fragment">au service des projets Wikimédia,</li>
+						<li class="fragment">appartenant au web des données,</li>
+						<li class="fragment">ne prétendant pas détenir la vérité.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Anatomie d'une entrée</h2>
+					<a href="https://commons.wikimedia.org/wiki/File:Wikidata_layout_Phase_II.png"><img height="600" src="img/Wikidata_layout_Phase_II.png" /></a>
+					<aside class="notes">Distinction avec les autres types de page (propriété et requête) + exemple : <a href="https://www.wikidata.org/wiki/Q42">Douglas Adams</a></aside>
+				</section>
+
+				<section>
+					<h2>Et Wikipédia ?</h2>
+					<p>Synchronisation des liens interlangues</p>
+					<p class="fragment">Affichage des données via la <em>parser function</em> <code>#property</code> ou Lua</p>
+					<p class="fragment">Aussi possible sur Wikivoyage, Wikimedia Commons et bientôt Wikisource</p>
+				</section>
+
+				<section>
+					<h2>Futur</h2>
+					<p>Affichage de listes via les requêtes (phase III)</p>
+					<p class="fragment">Support des autres projets (Wikiquote...)</p>
+					<p class="fragment">Projet d'utilisation du système dans Wikimedia Commons pour les métadonnées des fichiers</p>
+				</section>
+
+
+				<section>
+					<hgroup>
+						<h2>Le cœur :</h2>
+						<h1>les déclarations</h1>
+					</hgroup>
+				</section>
+
+				<section>
+					<h2>Anatomie</h2>
+					<a href="https://commons.wikimedia.org/wiki/File:Wikidata_statement_fr.svg"><div style="background-color: white;"><img height="500" src="img/Wikidata_statement_fr.svg" /></div></a>
+					<aside class="notes">Exemple : <a href="https://www.wikidata.org/wiki/Q42">Douglas Adams</a> propriété conjoint. Vocabulaire : déclaration (statement), affirmation (claim), connexion (snak)...</aside>
+				</section>
+
+				<section>
+					<h2>Les propriétés</h2>
+					<img height="400" src="img/property.png" />
+					<p>Les habituels labels et descriptions plus un type</p>
+				</section>
+
+				<section>
+					<h2><a href="https://www.wikidata.org/wiki/Wikidata:List_of_properties/fr">Liste des propriétés</a></h2>
+					<p>Quelques propriétés fondamentales :
+						<ul>
+							<li><a href="https://www.wikidata.org/wiki/Property:P31">nature de l'élément</a> : ⟨<a href="https://www.wikidata.org/wiki/Q3744562">Fido</a>⟩ <em>est un</em> ⟨<a href="https://www.wikidata.org/wiki/Q144">chien</a>⟩</li>
+							<li><a href="https://www.wikidata.org/wiki/Property:P279">sous-classe de</a> : ⟨<a href="https://www.wikidata.org/wiki/Q10884">arbre</a>⟩ <em>sous-classe de</em> ⟨<a href="https://www.wikidata.org/wiki/Q756">plantes</a>⟩</li>
+							<li><a href="https://www.wikidata.org/wiki/Property:P361">partie de</a> : <td>⟨<a href="https://www.wikidata.org/wiki/Q6718">Quark</a>⟩ <i>partie de</i> ⟨<a href="https://www.wikidata.org/wiki/Q101667">hadron</a>⟩</td></li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h2>L'indispensable cachet...</h2>
+					<a href="https://commons.wikimedia.org/wiki/File:Parasetamolivalmisteita.JPG"><img height="500" src="img/Parasetamolivalmisteita.JPG" /></a>
+				</section>
+
+				<section>
+					<section>
+						<h2>Types de données</h2>
+						<ul>
+							<li>Entrée</li>
+							<li class="fragment">Fichier de Commons</li>
+							<li class="fragment">Chaîne de caractère</li>
+							<li class="fragment">Date et heure</li>
+							<li class="fragment">coordonnées géographiques</li>
+							<li class="fragment">URL</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Et bientôt</h3>
+						<ul>
+							<li>Quantité (nombre avec ou sans dimension)</li>
+							<li class="fragment">texte monolingue ou multilingue</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Dates et heures</h3>
+						<img height="300" src="img/time.png" />
+						<p class="fragment">Date (+ heure)</p>
+						<p class="fragment">Avec une précision (du milliard d'années à la seconde),</p>
+						<p class="fragment">le support de plusieurs types de calendriers</p>
+						<p class="fragment">et des fuseaux horaires (futur).</p>
+					</section>
+
+					<section>
+						<h3>Coordonnées géographiques</h3>
+						<img height="300" src="img/coordinate.png" />
+						<p class="fragment">Latitude et longitude</p>
+						<p class="fragment">Avec encore une précision,</p>
+						<p class="fragment">et le support de globes autres que la Terre (futur).</p>
+					</section>
+
+					<section>
+						<h3>Quantité (futur proche)</h3>
+						<p>Un nombre relatif</p>
+						<p class="fragment">Avec potentiellement une unité</p>
+						<p class="fragment">et un interval de confiance (bornes supérieures et inférieures).</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Types d'affirmations sur une propriété</h2>
+					<ul>
+						<li>valeur personnalisée</li>
+						<li class="fragment">valeur inconnue</li>
+						<li class="fragment">aucune valeur</li>
+						<li class="fragment">intervalle (futur)</li>
+						<li class="fragment">intervalle inconnu (futur)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Rang des valeurs</h2>
+					<ul>
+						<li>désapprouvé (valeur manifestement fausse)</li>
+						<li>normal (par défaut)</li>
+						<li>préféré (valeur à afficher dans les infobox)</li>
+					</ul>
+					<aside class="notes">Exemple : population. désapprouvé : valeurs fausses. normal : valeurs historiques. préféré : valeur(s) à jour</aside>
+				</section>
+
+				<section>
+					<h2>Usage sur les wikis</h2>
+					<p>Dans les modèles via :</p>
+					<p class="fragment">La <em>parser function</em> <code>{{#property:PROPRIETE}}</code></p>
+					<p class="fragment">Lua : <code>mw.wikibase</code></p>
+					<p class="fragment">Exemple : le <a href="https://fr.wikipedia.org/wiki/Mod%C3%A8le:Autorit%C3%A9">modèle Autorité de Wikipédia en Français</a></p>
+				</section>
+
+				<section>
+					<h2>Web des données</h2>
+					<p>Chaque entrée à son URI http://www.wikidata.org/entity/Qid</p>
+					<p class="fragment">Formats :
+						<ul>
+							<li class="fragment">Données brutes : JSON ou XML</li>
+							<li class="fragment">RDF : XML, Turtle... (encore incomplet)</li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h1>Quelques outils</h1>
+				</section>
+
+				<section>
+					<h2>Editer les labels dans les autres langues</h2>
+					<p>Page utilisateur : <pre>{{#babel:fr-N|en-2|la-1|de-0}}</pre></p>
+					<figure class="fragment">
+						<figcaption>Dans chaque entrée de Wikidata :</figcaption>
+						<img height="300" src="img/other-languages.png" />
+					</figure>
+					<p class="fragment">Autre solution : gadget LabelLister <small>(merci <a href="https://fr.wikipedia.org/wiki/Utilisateur:Jitrixis">Jtrixis</a>)</small></p>
+				</section>
+
+				<section>
+					<h2>Gadgets</h2>
+					<p><a href="https://www.wikidata.org/wiki/Wikidata:Tools/Gadgets/fr">Liste complète</a></p>
+					<ul>
+						<li>slurpInterwiki : import des interwikis</li>
+						<li>"Main language first" permet de mettre le français en 1<sup>er</sup></li>
+						<li>Merge : fusion d'entrées</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Autre scripts</h2>
+					<p><a href="https://www.wikidata.org/wiki/Wikidata:Tools/User_scripts/fr">Liste complète</a></p>
+					<ul>
+						<li>Wikidata useful</li>
+						<li>authority_control.js</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Outils externes</h2>
+						<p><a href="https://www.wikidata.org/wiki/Wikidata:Tools/External_tools/fr">Liste complète</a></p>
+					</section>
+					<section>
+						<h3><a href="https://tools.wmflabs.org/reasonator/">Resonator</a></h3>
+						<p>Propose une présentation des données des entrées Wikidata</a>
+						<figure class="fragment">
+							<figcaption><a href="https://www.wikidata.org/wiki/Q42">Douglas Adams</a> :</figcaption>
+							<a href="https://tools.wmflabs.org/reasonator/?q=Q42"><img height="500" src="img/resonator.png" /></a>
+						</figure>
+					</section>
+					<section>
+						<h3><a href="http://wikidataquery.eu/">Wikidata query</a></h3>
+						<p>Permet de faire de puissantes recherches dans le graphe de Wikidata</a>
+						<figure class="fragment">
+							<figcaption><a href="https://www/wikidata.org/wiki/P31">Instance de</a> <a href="https://www/wikidata.org/wiki/Q37110">Pharaon</a> :</figcaption>
+							<a href="http://208.80.153.172/wdq/?q=claim[31:37110]"><img height="500" src="img/wikidataquery.png" /></a>
+						</figure>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2><a href="https://www.wikidata.org/wiki/Wikidata:Database_reports">Database reports</a></h2>
+						<p>Liste de rapport générés par des bots à partir de la base de donnée</p>
+					</section>
+
+					<section>
+						<h3>Contraintes sur les propriétés</h3>
+						<p>Permet de faire la liste des usages d'une propriété ne vérifiant pas une série de contraintes</p>
+						<figure class="fragment" style="width: 49%; float:left;">
+							<figcaption>Modèles</figcaption>
+							<a href="https://www.wikidata.org/wiki/Property_talk:P213"><img height="200" src="img/modeles_de_contrainte.png" /></a>
+						</figure>
+						<figure class="fragment" style="width: 49%; float:right;">
+							<figcaption>Rapport</figcaption>
+							<a href="https://www.wikidata.org/wiki/Wikidata:Database_reports/Constraint_violations/P213"><img height="300" src="img/rapport_de_contraintes.png" /></a>
+						</figure>
+					</section>
+				</section>
 		</div>
 	</div>
 
