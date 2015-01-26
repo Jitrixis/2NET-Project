@@ -86,7 +86,7 @@ La présentation est évalué sur une base de 15 points.
 | Répartition des temps de parole                                              | 1      |
 
 ### Le rendu
-Dès que vous avez terminé le projet, envoyez le par e-mail à votre **professeur** avec l'objet [MP22NET] <id> - <name> <firstname> - <campus>. N'oubliez pas d'ajouter la boite mail 2NET@supinfo.com dans le champs « copie carbonne » (cc)
+Dès que vous avez terminé le projet, envoyez le par e-mail à votre **professeur** avec l'objet [MP22NET] < id > - < name > < firstname > - < campus >. N'oubliez pas d'ajouter la boite mail 2NET@supinfo.com dans le champs « copie carbonne » (cc)
 
 Par exemple : 
 
