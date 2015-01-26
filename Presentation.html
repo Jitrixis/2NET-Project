@@ -12,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 		<link rel="stylesheet" href="./reveal.js/css/reveal.css" />
-		<link rel="stylesheet" href="./reveal.js/css/theme/beige.css" id="theme" />
+		<link rel="stylesheet" href="./reveal.js/css/theme/white.css" id="theme" />
 		<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css" />
 
 		<script>
@@ -32,14 +32,14 @@
 				</p>
 			</section>
 			<section data-background="#b5533c">
-				<h1>Sommaire</h1>
+				<h2>Sommaire</h2>
 				<ol>
 					<li>1<sup>re</sup> partie</li>
 					<li>2<sup>me</sup> partie</li>
 				</ol>
 			</section>
 			<section>
-				<h1>1<sup>re</sup> partie</h1>
+				<h2>1<sup>re</sup> partie</h2>
 				<p>Lorem ipsum dolor sit amet consectectur.</p>
 			</section>
 		</div>
@@ -47,6 +47,7 @@
 
 		<script src="./reveal.js/lib/js/head.min.js"></script>
 		<script src="./reveal.js/js/reveal.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		
 		<script>
 		Reveal.initialize({
@@ -109,7 +110,7 @@
 			previewLinks: false,
 			
 			// Transition style
-			transition: 'default', // none/fade/slide/convex/concave/zoom
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
 			
 			// Transition speed
 			transitionSpeed: 'default', // default/fast/slow
@@ -151,6 +152,11 @@
 				// MathJax
 				{ src: './reveal.js/plugin/math/math.js', async: true }
 			]
+		});
+		Reveal.configure({
+			keyboard: {
+				82: function(){$('#remotes-widget').toggle("fade");}
+			}
 		});
 		</script>
 	
