@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="135,26,0,0" VerticalAlignment="Top" Width="75" Click="OnClick"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,23,0,0" TextWrapping="Wrap" Text="Add a random waiter" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Resultat" HorizontalAlignment="Left" Height="23" Margin="58,139,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="ComboTest" HorizontalAlignment="Left" Margin="276,26,0,0" VerticalAlignment="Top" Width="204" Height="60"/>
+        <Button Content="Add waiter" HorizontalAlignment="Left" Margin="138,102,0,0" VerticalAlignment="Top" Width="75" Click="OnClick"/>
+        <ComboBox Name="ComboTest" HorizontalAlignment="Left" Margin="276,26,0,0" VerticalAlignment="Top" Width="201" Height="20"/>
+        <Label Name="Status" Content="Waiting..." HorizontalAlignment="Left" Margin="10,256,0,0" VerticalAlignment="Top" Height="31" Width="148"/>
+        <Button Content="Delete waiter" HorizontalAlignment="Left" Margin="338,65,0,0" VerticalAlignment="Top" Width="75" Click="DeleteWaiter"/>
+        <Label Content="FirstName" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top"/>
+        <Label Content="LastName" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="FirstName" HorizontalAlignment="Left" Height="23" Margin="93,29,0,0" TextWrapping="Wrap" Text="Enter First name" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="LastName" HorizontalAlignment="Left" Height="23" Margin="93,63,0,0" TextWrapping="Wrap" Text="Enter Last name" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
