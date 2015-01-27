@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using _2NET_Restaurant_Management_Software.Database;
 
 namespace _2NET_Restaurant_Management_Software
 {
@@ -20,9 +21,39 @@ namespace _2NET_Restaurant_Management_Software
     /// </summary>
     public partial class MainWindow : Window
     {
+        private RestaurantContext database;
+
         public MainWindow()
         {
             InitializeComponent();
+            database = new RestaurantContext();
+            BindComboBox();
+        }
+
+        public void BindComboBox()
+        {
+            var query = from b in database.Waiters
+                        select b;
+
+            ComboTest.ItemsSource = query.ToList();
+            ComboTest.DisplayMemberPath = "FirstName";
+            ComboTest.SelectedValuePath = "Waiterid";
+        }
+
+        private void OnClick(object sender, RoutedEventArgs e)
+        {
+            var waiter = new Waiter
+            {
+                FirstName = "Corentin",
+                LastName = "BEAL",
+                 
+            };
+
+            database.Waiters.Add(waiter);
+            database.SaveChanges();
+            Resultat.Text = "Waiter created";
         }
     }
+
+    
 }

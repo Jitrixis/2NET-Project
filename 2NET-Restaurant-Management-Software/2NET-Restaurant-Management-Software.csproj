@@ -70,7 +70,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Database\Bill.cs" />
-    <Compile Include="Database\Context.cs" />
+    <Compile Include="Database\RestaurantContext.cs" />
     <Compile Include="Database\Meal.cs" />
     <Compile Include="Database\Table.cs" />
     <Compile Include="Database\Waiter.cs" />
