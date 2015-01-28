@@ -12,23 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using _2NET_Restaurant_Management_Software.Database;
 
 namespace _2NET_Restaurant_Management_Software
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour DataBaseControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DataBaseControl : UserControl
     {
-        private RestaurantContext database;
-
-        public MainWindow()
+        public DataBaseControl()
         {
             InitializeComponent();
+        }
+
+        private void ChangeControl(object sender, RoutedEventArgs e)
+        {
             this.Content = new MainControl();
         }
     }
-
-    
 }
