@@ -9,7 +9,7 @@ namespace _2NET_Restaurant_Management_Software.Database
 
         public string Meal_name { get; set; }
 
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         public virtual List<Bill> Bill { get; set; }
     }
