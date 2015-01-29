@@ -34,5 +34,10 @@ namespace Restaurant
                 this.Content = new DataBaseControl();
             }
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
