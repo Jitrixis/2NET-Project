@@ -26,7 +26,20 @@ namespace Restaurant
         {
             InitializeComponent();
             database = new RestaurantContext();
+            System.Windows.Threading.DispatcherTimer messageTimer = new System.Windows.Threading.DispatcherTimer();
+            messageTimer.Tick += new EventHandler(messageTimer_Tick);
+            messageTimer.Interval = new TimeSpan(0, 0, 10);
+            messageTimer.Start();
+
             BindWaiterComboBox();
+        }
+
+        private void messageTimer_Tick(object sender, EventArgs e)
+        {
+            if (WaiterStatus.Content != "Waiting...")
+            {
+                WaiterStatus.Content = "Waiting...";
+            }
         }
 
         public void BindWaiterComboBox()
@@ -41,10 +54,21 @@ namespace Restaurant
 
         public void BindWaiterStats()
         {
+            WaiterGrid.ItemsSource = LoadCollectionData();
+        }
+
+        private List<Waiter> LoadCollectionData()
+        {
+            List<Waiter> waiters = new List<Waiter>();
+
             var query = from b in database.Waiters
                         select b;
 
-            WaiterGrid.ItemsSource = query;
+            foreach (var item in query)
+            {
+                waiters.Add(item);
+            }
+            return waiters;
         }
 
         private void OnClick(object sender, RoutedEventArgs e)
@@ -58,7 +82,7 @@ namespace Restaurant
 
             database.Waiters.Add(waiter);
             database.SaveChanges();
-            Status.Content = "Waiter created";
+            WaiterStatus.Content = "Waiter created";
             BindWaiterComboBox();
         }
 
@@ -78,6 +102,7 @@ namespace Restaurant
                 }
 
                 database.SaveChanges();
+                WaiterStatus.Content = "Waiter deleted";
                 BindWaiterComboBox();
             }
         }
@@ -130,15 +155,30 @@ namespace Restaurant
                         item.FirstName = FirstName.Text;
                         item.LastName = LastName.Text;
                     }
-
                     database.SaveChanges();
+                    WaiterStatus.Content = "Waiter updated";
                 }
             }
         }
 
-        private void LoadStat(object sender, ContextMenuEventArgs e)
+        private void LoadTab(object sender, SelectionChangedEventArgs e)
         {
-            BindWaiterStats();
+            if (Waiter.IsSelected)
+            {
+                BindWaiterComboBox();
+            }
+            if (Table.IsSelected)
+            {
+
+            }
+            if (Meal.IsSelected)
+            {
+
+            }
+            if (Stats.IsSelected)
+            {
+                BindWaiterStats();
+            }
         }
     }
 }
