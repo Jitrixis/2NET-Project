@@ -36,6 +36,10 @@ namespace Restaurant
             }
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void LoadTables(){
             var query = from b in database.Tables
                         select b;
