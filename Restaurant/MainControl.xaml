@@ -6,6 +6,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="525">
     <Grid>
-        <Button Content="Modify base" HorizontalAlignment="Left" Margin="419,31,0,0" VerticalAlignment="Top" Width="75" Click="GoToDatabase"/>
+        
+        <Button Content="Modify base" HorizontalAlignment="Left" Margin="440,10,0,0" VerticalAlignment="Top" Width="75" Click="GoToDatabase" Height="37"/>
+        <WrapPanel Name="Wrap" HorizontalAlignment="Left" Height="288" Margin="10,52,0,0" VerticalAlignment="Top" Width="505"/>
+        <Button Content="Add table&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Addtable" Height="37"/>
     </Grid>
 </UserControl>
