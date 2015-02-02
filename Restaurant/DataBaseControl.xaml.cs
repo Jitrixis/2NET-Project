@@ -28,9 +28,7 @@ namespace Restaurant
             database = new RestaurantContext();
             System.Windows.Threading.DispatcherTimer messageTimer = new System.Windows.Threading.DispatcherTimer();
             messageTimer.Tick += new EventHandler(messageTimer_Tick);
-            messageTimer.Interval = new TimeSpan(0, 0, 10);
-            messageTimer.Start();
-
+            messageTimer.Interval = new TimeSpan(0, 0, 8);
             BindWaiterComboBox();
         }
 
@@ -54,7 +52,11 @@ namespace Restaurant
 
         public void BindWaiterStats()
         {
-            WaiterGrid.ItemsSource = LoadCollectionData();
+            var query = from b in database.Waiters
+                        select b;
+
+            //WaiterGrid.ItemsSource = LoadCollectionData();
+            WaiterGrid.ItemsSource = query.ToList();
         }
 
         private List<Waiter> LoadCollectionData()
@@ -66,7 +68,7 @@ namespace Restaurant
 
             foreach (var item in query)
             {
-                waiters.Add(item);
+                waiters.Add(new Waiter { FirstName=item.FirstName, LastName = item.LastName});
             }
             return waiters;
         }
@@ -179,6 +181,19 @@ namespace Restaurant
             {
                 BindWaiterStats();
             }
+        }
+
+        private void UpdateDebug(object sender, RoutedEventArgs e)
+        {
+            foreach (DataGridColumn col in WaiterGrid.Columns)
+            {
+                if (col.Header == "Bills") {
+                    col.Visibility = Visibility.Collapsed;
+                }
+            }
+            //WaiterGrid.Columns[0].Visibility = Visibility.Collapsed;
+            WaiterGrid.Columns[3].Visibility = Visibility.Collapsed;
+            //WaiterGrid.Columns[4].Visibility = Visibility.Collapsed;
         }
     }
 }
