@@ -73,21 +73,6 @@ namespace Restaurant
             return waiters;
         }
 
-        private void OnClick(object sender, RoutedEventArgs e)
-        {
-            var waiter = new Waiter
-            {
-                FirstName = FirstName.Text,
-                LastName = LastName.Text,
-
-            };
-
-            database.Waiters.Add(waiter);
-            database.SaveChanges();
-            WaiterStatus.Content = "Waiter created";
-            BindWaiterComboBox();
-        }
-
         private void DeleteWaiter(object sender, RoutedEventArgs e)
         {
             int index = (int)ComboTest.SelectedValue;
@@ -133,8 +118,8 @@ namespace Restaurant
 
                     foreach (var item in query)
                     {
-                        FirstName.Text = item.FirstName;
-                        LastName.Text = item.LastName;
+                        FirstNameModify.Text = item.FirstName;
+                        LastNameModify.Text = item.LastName;
                     }
                 }
             }
@@ -154,8 +139,8 @@ namespace Restaurant
 
                     foreach (var item in query)
                     {
-                        item.FirstName = FirstName.Text;
-                        item.LastName = LastName.Text;
+                        item.FirstName = FirstNameModify.Text;
+                        item.LastName = LastNameModify.Text;
                     }
                     database.SaveChanges();
                     WaiterStatus.Content = "Waiter updated";
@@ -194,6 +179,21 @@ namespace Restaurant
             //WaiterGrid.Columns[0].Visibility = Visibility.Collapsed;
             WaiterGrid.Columns[3].Visibility = Visibility.Collapsed;
             //WaiterGrid.Columns[4].Visibility = Visibility.Collapsed;
+        }
+
+        private void AddWaiter(object sender, RoutedEventArgs e)
+        {
+            var waiter = new Waiter
+            {
+                FirstName = FirstName.Text,
+                LastName = LastName.Text,
+
+            };
+
+            database.Waiters.Add(waiter);
+            database.SaveChanges();
+            WaiterStatus.Content = "Waiter created";
+            BindWaiterComboBox();
         }
     }
 }
