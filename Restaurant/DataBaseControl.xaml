@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="580" d:DesignWidth="800">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="576" Margin="10,14,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="LoadTab">
+        <TabControl HorizontalAlignment="Left" Height="556" Margin="10,14,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="LoadTab">
             <TabItem x:Name="Waiter" Header="Waiter">
-                <Grid Background="#FFE5E5E5" Margin="0,3,0,150">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,2">
                     <Label Content="Creation" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
                     <Label Content="FirstName" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
                     <Label Content="LastName" HorizontalAlignment="Left" Margin="31,165,0,0" VerticalAlignment="Top"/>
@@ -17,20 +17,45 @@
                     <Button Content="Add waiter" HorizontalAlignment="Left" Margin="214,221,0,0" VerticalAlignment="Top" Width="88" Click="AddWaiter"/>
 
                     <Label Content="Modification" HorizontalAlignment="Left" Margin="363,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
-                    <ComboBox Name="ComboTest" HorizontalAlignment="Left" Margin="484,90,0,0" VerticalAlignment="Top" Width="194" Height="20" SelectionChanged="UpdateBox"/>
+                    <ComboBox Name="ComboWaiter" HorizontalAlignment="Left" Margin="484,96,0,0" VerticalAlignment="Top" Width="194" Height="20" SelectionChanged="UpdateBox"/>
                     <Label Content="Selection" HorizontalAlignment="Left" Margin="403,90,0,0" VerticalAlignment="Top"/>
                     <Label Content="FirstName" HorizontalAlignment="Left" Margin="402,134,0,0" VerticalAlignment="Top"/>
                     <Label Content="LastName" HorizontalAlignment="Left" Margin="403,165,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="FirstNameModify" HorizontalAlignment="Left" Height="23" Margin="484,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
+                    <TextBox x:Name="FirstNameModify" HorizontalAlignment="Left" Height="23" Margin="484,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
                     <TextBox x:Name="LastNameModify" HorizontalAlignment="Left" Height="23" Margin="484,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
                     <Button Content="Update waiter" HorizontalAlignment="Left" Margin="484,221,0,0" VerticalAlignment="Top" Width="91" Click="UpdateWaiter"/>
                     <Button Content="Delete waiter" HorizontalAlignment="Left" Margin="589,221,0,0" VerticalAlignment="Top" Width="89" Click="DeleteWaiter"/>
 
-                    <Label x:Name="WaiterStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="580,356,0,0" VerticalAlignment="Top" Height="37" Width="184" FontSize="18"/>
+                    <Label Name="WaiterStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="10,479,0,0" VerticalAlignment="Top" Height="37" Width="184" FontSize="18"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Table" Header="Table">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Creation" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
+                    <Label Content="Seat Number" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Status" HorizontalAlignment="Left" Margin="31,165,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="SeatNbr" HorizontalAlignment="Left" Height="23" Margin="109,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
+                    <ComboBox Name="StatusTableBox" HorizontalAlignment="Left" Margin="109,168,0,0" VerticalAlignment="Top" Width="193">
+                        <ComboBoxItem Content="Empty"/>
+                        <ComboBoxItem Content="Eating"/>
+                    </ComboBox>
+                    <Button Content="Add table" HorizontalAlignment="Left" Margin="214,221,0,0" VerticalAlignment="Top" Width="88" Click="AddTable"/>
+
+                    <Label Content="Modification" HorizontalAlignment="Left" Margin="363,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
+                    <ComboBox Name="ComboTable" HorizontalAlignment="Left" Margin="484,96,0,0" VerticalAlignment="Top" Width="194" Height="20" SelectionChanged="UpdateTableBox"/>
+                    <Label Content="Selection" HorizontalAlignment="Left" Margin="403,90,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Seat Number" HorizontalAlignment="Left" Margin="402,134,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Status" HorizontalAlignment="Left" Margin="403,165,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="SeatNbrModify" HorizontalAlignment="Left" Height="23" Margin="484,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
+                    <ComboBox Name="StatusTableBoxModify" HorizontalAlignment="Left" Margin="484,169,0,0" VerticalAlignment="Top" Width="193">
+                        <ComboBoxItem Content="Empty"/>
+                        <ComboBoxItem Content="Eating"/>
+                    </ComboBox>
+                    <Button Content="Update table" HorizontalAlignment="Left" Margin="484,221,0,0" VerticalAlignment="Top" Width="91" Click="UpdateTable"/>
+                    <Button Content="Delete table" HorizontalAlignment="Left" Margin="589,221,0,0" VerticalAlignment="Top" Width="89" Click="DeleteTable"/>
+
+                    <Label Name="TableStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="10,481,0,0" VerticalAlignment="Top" Height="37" Width="435" FontSize="18"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="Meal" Header="Meal">
                 <Grid Background="#FFE5E5E5"/>

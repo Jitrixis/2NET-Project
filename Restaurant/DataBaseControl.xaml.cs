@@ -28,16 +28,20 @@ namespace Restaurant
             database = new RestaurantContext();
             System.Windows.Threading.DispatcherTimer messageTimer = new System.Windows.Threading.DispatcherTimer();
             messageTimer.Tick += new EventHandler(messageTimer_Tick);
-            messageTimer.Interval = new TimeSpan(0, 0, 8);
+            messageTimer.Interval = new TimeSpan(0, 0, 0, 8);
             BindWaiterComboBox();
         }
 
-        private void messageTimer_Tick(object sender, EventArgs e)
+        private void messageTimer_Tick(object sender, EventArgs e)  //Not called need to be fixed
         {
-            if (WaiterStatus.Content != "Waiting...")
-            {
+            //if (WaiterStatus.Content.ToString() != "Waiting...")
+           // {
                 WaiterStatus.Content = "Waiting...";
-            }
+            //}
+            //if (TableStatus.Content.ToString() != "Waiting...")
+           // {
+                TableStatus.Content = "Waiting...";
+            //}
         }
 
         public void BindWaiterComboBox()
@@ -45,9 +49,19 @@ namespace Restaurant
             var query = from b in database.Waiters
                         select b;
 
-            ComboTest.ItemsSource = query.ToList();
-            ComboTest.DisplayMemberPath = "FirstName";
-            ComboTest.SelectedValuePath = "WaiterId";
+            ComboWaiter.ItemsSource = query.ToList();
+            ComboWaiter.DisplayMemberPath = "FirstName";
+            ComboWaiter.SelectedValuePath = "WaiterId";
+        }
+
+        public void BindTableComboBox()
+        {
+            var query = from b in database.Tables
+                        select b;
+
+            ComboTable.ItemsSource = query.ToList();
+            ComboTable.DisplayMemberPath = "TableId";
+            ComboTable.SelectedValuePath = "TableId";
         }
 
         public void BindWaiterStats()
@@ -55,44 +69,9 @@ namespace Restaurant
             var query = from b in database.Waiters
                         select b;
 
-            //WaiterGrid.ItemsSource = LoadCollectionData();
             WaiterGrid.ItemsSource = query.ToList();
         }
 
-        private List<Waiter> LoadCollectionData()
-        {
-            List<Waiter> waiters = new List<Waiter>();
-
-            var query = from b in database.Waiters
-                        select b;
-
-            foreach (var item in query)
-            {
-                waiters.Add(new Waiter { FirstName=item.FirstName, LastName = item.LastName});
-            }
-            return waiters;
-        }
-
-        private void DeleteWaiter(object sender, RoutedEventArgs e)
-        {
-            int index = (int)ComboTest.SelectedValue;
-
-            if (index > 0)
-            {
-                var query = from b in database.Waiters
-                            where b.WaiterId == index
-                            select b;
-
-                foreach (var item in query)
-                {
-                    database.Waiters.Remove(item);
-                }
-
-                database.SaveChanges();
-                WaiterStatus.Content = "Waiter deleted";
-                BindWaiterComboBox();
-            }
-        }
 
         private void ChangeControl(object sender, RoutedEventArgs e)
         {
@@ -106,9 +85,9 @@ namespace Restaurant
 
         private void UpdateBox(object sender, SelectionChangedEventArgs e)
         {
-            if (ComboTest.SelectedValue != null)
+            if (ComboWaiter.SelectedValue != null)
             {
-                int index = (int)ComboTest.SelectedValue;
+                int index = (int)ComboWaiter.SelectedValue;
 
                 if (index > 0)
                 {
@@ -125,28 +104,7 @@ namespace Restaurant
             }
         }
 
-        private void UpdateWaiter(object sender, RoutedEventArgs e)
-        {
-            if (ComboTest.SelectedValue != null)
-            {
-                int index = (int)ComboTest.SelectedValue;
-
-                if (index > 0)
-                {
-                    var query = from b in database.Waiters
-                                where b.WaiterId == index
-                                select b;
-
-                    foreach (var item in query)
-                    {
-                        item.FirstName = FirstNameModify.Text;
-                        item.LastName = LastNameModify.Text;
-                    }
-                    database.SaveChanges();
-                    WaiterStatus.Content = "Waiter updated";
-                }
-            }
-        }
+        
 
         private void LoadTab(object sender, SelectionChangedEventArgs e)
         {
@@ -156,7 +114,7 @@ namespace Restaurant
             }
             if (Table.IsSelected)
             {
-
+                BindTableComboBox();
             }
             if (Meal.IsSelected)
             {
@@ -176,9 +134,7 @@ namespace Restaurant
                     col.Visibility = Visibility.Collapsed;
                 }
             }
-            //WaiterGrid.Columns[0].Visibility = Visibility.Collapsed;
             WaiterGrid.Columns[3].Visibility = Visibility.Collapsed;
-            //WaiterGrid.Columns[4].Visibility = Visibility.Collapsed;
         }
 
         private void AddWaiter(object sender, RoutedEventArgs e)
@@ -194,6 +150,194 @@ namespace Restaurant
             database.SaveChanges();
             WaiterStatus.Content = "Waiter created";
             BindWaiterComboBox();
+        }
+
+        private void DeleteWaiter(object sender, RoutedEventArgs e)
+        {
+            int index = (int)ComboWaiter.SelectedValue;
+
+            if (index > 0)
+            {
+                var query = from b in database.Waiters
+                            where b.WaiterId == index
+                            select b;
+
+                foreach (var item in query)
+                {
+                    database.Waiters.Remove(item);
+                }
+
+                database.SaveChanges();
+                WaiterStatus.Content = "Waiter deleted";
+                BindWaiterComboBox();
+            }
+        }
+
+        private void UpdateWaiter(object sender, RoutedEventArgs e)
+        {
+            if (ComboWaiter.SelectedValue != null)
+            {
+                int index = (int)ComboWaiter.SelectedValue;
+
+                if (index > 0)
+                {
+                    var query = from b in database.Waiters
+                                where b.WaiterId == index
+                                select b;
+
+                    foreach (var item in query)
+                    {
+                        item.FirstName = FirstNameModify.Text;
+                        item.LastName = LastNameModify.Text;
+                    }
+                    database.SaveChanges();
+                    WaiterStatus.Content = "Waiter updated";
+                }
+            }
+        }
+
+        private void AddTable(object sender, RoutedEventArgs e)
+        {
+            int chair = 1;
+            bool empty = false;
+
+            if (Int32.TryParse(SeatNbr.Text, out chair))
+            {
+                if (StatusTableBox.SelectedIndex == 0 || StatusTableBox.SelectedIndex == 1)
+                {
+                    if (StatusTableBox.SelectedIndex == 0)
+                    {
+                        empty = true;
+                    }
+                    else if (StatusTableBox.SelectedIndex == 1)
+                    {
+                        empty = false;
+                    }
+                    
+                    var table = new Restaurant.Database.Table
+                    {
+                        Chair_number = chair,
+                        isEmpty = empty
+                    };
+
+                    database.Tables.Add(table);
+                    database.SaveChanges();
+                    TableStatus.Content = "Table created";
+                    BindTableComboBox();
+                }
+                else
+                {
+                    TableStatus.Content = "Please choose a status";
+                }
+            }
+            else
+            {
+                TableStatus.Content = "Please choose a valid number of chair";
+            }
+        }
+
+        private void DeleteTable(object sender, RoutedEventArgs e)
+        {
+            if (ComboTable.SelectedValue != null)
+            {
+                int index = (int)ComboTable.SelectedValue;
+
+                if (index > 0)
+                {
+                    var query = from b in database.Tables
+                                where b.TableId == index
+                                select b;
+
+                    foreach (var item in query)
+                    {
+                        database.Tables.Remove(item);
+                    }
+
+                    database.SaveChanges();
+                    TableStatus.Content = "Table deleted";
+                    BindWaiterComboBox();
+                }
+            }
+            else
+            {
+                TableStatus.Content = "No table selected";
+            }
+        }
+
+        private void UpdateTable(object sender, RoutedEventArgs e)
+        {
+            int chair = 1;
+            bool empty = false;
+
+            if (ComboTable.SelectedValue != null)
+            {
+                int index = (int)ComboTable.SelectedValue;
+
+                if (Int32.TryParse(SeatNbrModify.Text, out chair))
+                {
+                    if (StatusTableBoxModify.SelectedIndex == 0 || StatusTableBoxModify.SelectedIndex == 1)
+                    {
+                        if (StatusTableBoxModify.SelectedIndex == 0)
+                        {
+                            empty = true;
+                        }
+                        else if (StatusTableBoxModify.SelectedIndex == 1)
+                        {
+                            empty = false;
+                        }
+
+                        if (index > 0)
+                        {
+                            var query = from b in database.Tables
+                                        where b.TableId == index
+                                        select b;
+                                
+                            foreach (var item in query)
+                            {
+                                item.Chair_number = chair;
+                                item.isEmpty = empty;
+                            }
+
+                            database.SaveChanges();
+                            TableStatus.Content = "Table updated";
+                            BindTableComboBox();
+                        }
+                    }
+                    else
+                    {
+                        TableStatus.Content = "Please choose a status";
+                    }
+                }
+                else
+                {
+                    TableStatus.Content = "Please choose a valid number of chair";
+                }
+            }
+            else
+            {
+                TableStatus.Content = "No table selected";
+            }
+        }
+
+        private void UpdateTableBox(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboTable.SelectedValue != null)
+            {
+                int index = (int)ComboTable.SelectedValue;
+
+                if (index > 0)
+                {
+                    var query = from b in database.Tables
+                                where b.TableId == index
+                                select b;
+
+                    foreach (var item in query)
+                    {
+                        SeatNbrModify.Text = item.Chair_number.ToString();
+                        StatusTableBoxModify.SelectedIndex = item.isEmpty == true ? 0 : 1;
+                    }
+                }
+            }
         }
     }
 }

@@ -46,15 +46,11 @@ namespace Restaurant
 
             foreach (var item in query)
             {
-                //Create new button
+                //create a button
+                System.Windows.Controls.Button newBtn = new Button();
+                newBtn.Content = "A New Button";
+                Wrap.Children.Add(newBtn);
             }
-        }
-
-        private void Addtable(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Controls.Button newBtn = new Button();
-            newBtn.Content = "A New Button";
-            Wrap.Children.Add(newBtn);
         }
     }
 }
