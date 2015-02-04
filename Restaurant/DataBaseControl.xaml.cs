@@ -339,5 +339,25 @@ namespace Restaurant
                 }
             }
         }
+
+        private void AddMeal(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateMealBox(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void UpdateMeal(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteMeal(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

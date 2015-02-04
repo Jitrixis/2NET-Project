@@ -58,7 +58,26 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="Meal" Header="Meal">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Creation" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
+                    <Label Content="Price" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="31,165,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="MealPrice" HorizontalAlignment="Left" Height="23" Margin="109,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
+                    <TextBox Name="MealName" HorizontalAlignment="Left" Height="23" Margin="109,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
+                    <Button Content="Add Meal" HorizontalAlignment="Left" Margin="214,221,0,0" VerticalAlignment="Top" Width="88" Click="AddMeal"/>
+
+                    <Label Content="Modification" HorizontalAlignment="Left" Margin="363,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
+                    <ComboBox Name="ComboMeal" HorizontalAlignment="Left" Margin="484,96,0,0" VerticalAlignment="Top" Width="194" Height="20" SelectionChanged="UpdateMealBox"/>
+                    <Label Content="Selection" HorizontalAlignment="Left" Margin="403,90,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Price" HorizontalAlignment="Left" Margin="402,134,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="403,165,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="MealPriceModify" HorizontalAlignment="Left" Height="23" Margin="484,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
+                    <TextBox Name="MealNameModify" HorizontalAlignment="Left" Height="23" Margin="484,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
+                    <Button Content="Update meal" HorizontalAlignment="Left" Margin="484,221,0,0" VerticalAlignment="Top" Width="91" Click="UpdateMeal"/>
+                    <Button Content="Delete meal" HorizontalAlignment="Left" Margin="589,221,0,0" VerticalAlignment="Top" Width="89" Click="DeleteMeal"/>
+
+                    <Label Name="MealStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="10,481,0,0" VerticalAlignment="Top" Height="37" Width="435" FontSize="18"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="Stats" Header="Stats">
                 <Grid Background="#FFE5E5E5">
