@@ -64,6 +64,16 @@ namespace Restaurant
             ComboTable.SelectedValuePath = "TableId";
         }
 
+        public void BindMealComboBox()
+        {
+            var query = from b in database.Meals
+                        select b;
+
+            ComboMeal.ItemsSource = query.ToList();
+            ComboMeal.DisplayMemberPath = "Meal_name";
+            ComboMeal.SelectedValuePath = "MealId";
+        }
+
         public void BindWaiterStats()
         {
             var query = from b in database.Waiters
@@ -118,7 +128,7 @@ namespace Restaurant
             }
             if (Meal.IsSelected)
             {
-
+                BindMealComboBox();
             }
             if (Stats.IsSelected)
             {
@@ -342,22 +352,111 @@ namespace Restaurant
 
         private void AddMeal(object sender, RoutedEventArgs e)
         {
+            double price = 1;
 
-        }
+            if (Double.TryParse(MealPrice.Text, out price))
+            {
+                var meal = new Meal
+                {
+                    Price = price,
+                    Meal_name = MealName.Text
+                };
 
-        private void UpdateMealBox(object sender, SelectionChangedEventArgs e)
-        {
-
+                database.Meals.Add(meal);
+                database.SaveChanges();
+                MealStatus.Content = "Meal created";
+                BindMealComboBox();
+            }
+            else
+            {
+                MealStatus.Content = "Please choose a valid price";
+            }
         }
 
         private void UpdateMeal(object sender, RoutedEventArgs e)
         {
+            if (ComboMeal.SelectedValue != null)
+            {
+                double price = 1;
 
+                if (Double.TryParse(MealPriceModify.Text, out price))
+                {
+                    int index = (int)ComboMeal.SelectedValue;
+
+                    if (index > 0)
+                    {
+                        var query = from b in database.Meals
+                                    where b.MealId == index
+                                    select b;
+
+                        foreach (var item in query)
+                        {
+                            item.Price = price;
+                            item.Meal_name = MealNameModify.Text;
+                        }
+                        database.SaveChanges();
+                        BindMealComboBox();
+                        MealStatus.Content = "Meal updated";
+                    }
+                }
+                else
+                {
+                    MealStatus.Content = "Please choose a valid price";
+                }
+            }
+            else
+            {
+                MealStatus.Content = "No meal selected";
+            }
         }
 
         private void DeleteMeal(object sender, RoutedEventArgs e)
         {
+            if (ComboMeal.SelectedValue != null)
+            {
+                int index = (int)ComboMeal.SelectedValue;
 
+                if (index > 0)
+                {
+                    var query = from b in database.Meals
+                                where b.MealId == index
+                                select b;
+
+                    foreach (var item in query)
+                    {
+                        database.Meals.Remove(item);
+                    }
+
+                    database.SaveChanges();
+                    BindMealComboBox();
+                    MealStatus.Content = "Meal removed";
+                }
+            }
+            else
+            {
+                MealStatus.Content = "No meal selected";
+            }
+        }
+
+        private void UpdateMealBox(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboMeal.SelectedValue != null)
+            {
+                int index = (int)ComboMeal.SelectedValue;
+
+                if (index > 0)
+                {
+                    var query = from b in database.Meals
+                                where b.MealId == index
+                                select b;
+
+                    foreach (var item in query)
+                    {
+                        MealNameModify.Text = item.Meal_name;
+                        MealPriceModify.Text = item.Price.ToString();
+                    }
+                }
+            }
         }
     }
 }

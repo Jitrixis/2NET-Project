@@ -82,7 +82,10 @@
             <TabItem x:Name="Stats" Header="Stats">
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Sort by:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.47,0.523"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="65,14,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="65,14,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem Content="Table served"/>
+                        <ComboBoxItem Content="Bills price sum"/>
+                    </ComboBox>
                     <DataGrid Name="WaiterGrid" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="211" Width="461"/>
                     <Button Content="Debug" HorizontalAlignment="Left" Margin="372,16,0,0" VerticalAlignment="Top" Width="75" Click="UpdateDebug"/>
                 </Grid>

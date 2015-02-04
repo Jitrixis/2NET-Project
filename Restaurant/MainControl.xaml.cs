@@ -47,9 +47,21 @@ namespace Restaurant
             foreach (var item in query)
             {
                 //create a button
-                System.Windows.Controls.Button newBtn = new Button();
-                newBtn.Content = "A New Button";
-                Wrap.Children.Add(newBtn);
+                System.Windows.Controls.Button Tablebutton = new Button();
+                Tablebutton.Content = String.Format("Table {0}\n{1} {2}", item.TableId, item.Chair_number, item.Chair_number > 1?"people":"peoples");
+                Tablebutton.Height = 100;
+                Tablebutton.Width = 100;
+                Tablebutton.Margin = new System.Windows.Thickness(5);
+                if (item.isEmpty)
+                {
+                    Tablebutton.Background = Brushes.Green;
+                }
+                else
+                {
+                    Tablebutton.Background = Brushes.Red;
+                }
+                
+                Wrap.Children.Add(Tablebutton);
             }
         }
     }
