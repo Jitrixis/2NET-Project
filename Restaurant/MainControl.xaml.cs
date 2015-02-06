@@ -48,7 +48,7 @@ namespace Restaurant
             {
                 //create a button
                 System.Windows.Controls.Button Tablebutton = new Button();
-                Tablebutton.Content = String.Format("Table {0}\n{1} {2}", item.TableId, item.Chair_number, item.Chair_number > 1?"people":"peoples");
+                Tablebutton.Content = String.Format("Table {0}\n-{1} {2}-", item.TableId, item.Chair_number, item.Chair_number > 1?"people":"peoples");
                 Tablebutton.Height = 100;
                 Tablebutton.Width = 100;
                 Tablebutton.Margin = new System.Windows.Thickness(5);
@@ -60,9 +60,25 @@ namespace Restaurant
                 {
                     Tablebutton.Background = Brushes.Red;
                 }
-                
+                Tablebutton.Click += new RoutedEventHandler(Tablebutton_Click);
                 Wrap.Children.Add(Tablebutton);
             }
+        }
+
+        private void Tablebutton_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            string number_str = button.Content.ToString().Split('-')[0]; //Remove the end of content
+            number_str = number_str.Remove(0, 6);       //Remove "Table "
+            number_str = number_str.Replace("\n", string.Empty);  //Remove "\n"
+
+            int id = -1;
+
+            if (Int32.TryParse(number_str, out id))
+            {
+                this.Content = new BillControl(id);
+            }
+            // identify which button was clicked and perform necessary actions
         }
     }
 }
