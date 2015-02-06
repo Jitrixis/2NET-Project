@@ -152,8 +152,7 @@ namespace Restaurant
             var waiter = new Waiter
             {
                 FirstName = FirstName.Text,
-                LastName = LastName.Text,
-
+                LastName = LastName.Text
             };
 
             database.Waiters.Add(waiter);
@@ -223,11 +222,11 @@ namespace Restaurant
                     {
                         empty = false;
                     }
-                    
+
                     var table = new Restaurant.Database.Table
                     {
                         Chair_number = chair,
-                        isEmpty = empty
+                        isEmpty = empty,
                     };
 
                     database.Tables.Add(table);
