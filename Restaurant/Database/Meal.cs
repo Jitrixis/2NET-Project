@@ -13,7 +13,5 @@ namespace Restaurant.Database
         public string Meal_name { get; set; }
 
         public double Price { get; set; }
-
-        public virtual List<Bill> Bill { get; set; }
     }
 }

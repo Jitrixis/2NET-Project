@@ -8,6 +8,9 @@ namespace Restaurant.Database
 {
     class Waiter
     {
+        public Waiter() {
+            Bills = new List<Bill>();
+        }
         public int WaiterId { get; set; }
 
         public string FirstName { get; set; }

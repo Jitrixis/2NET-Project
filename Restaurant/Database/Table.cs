@@ -8,6 +8,9 @@ namespace Restaurant.Database
 {
     class Table
     {
+        public Table() {
+            Bills = new List<Bill>();
+        }
         public int TableId { get; set; }
 
         public bool isEmpty { get; set; }
