@@ -5,7 +5,7 @@
         Title="OnMyWay" Height="600" Width="800">
     <Controls:MetroWindow.RightWindowCommands>
       <Controls:WindowCommands>
-        <Button Content="Administration" Click="ShowAdminPanel" />
+        <Button Content="Settings" Click="ShowAdminPanel" />
       </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid Background="#FFEEEEEE">

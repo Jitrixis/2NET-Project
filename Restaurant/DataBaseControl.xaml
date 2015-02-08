@@ -8,7 +8,7 @@
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="576" Margin="10,14,0,0" VerticalAlignment="Top" Width="780" SelectionChanged="LoadTab">
             <TabItem x:Name="Waiter" Header="Waiter">
-                <Grid Background="#FFE5E5E5" Margin="0,3,0,150">
+                <Grid Margin="0,3,0,150">
                     <Label Content="Creation" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
                     <Label Content="FirstName" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
                     <Label Content="LastName" HorizontalAlignment="Left" Margin="31,165,0,0" VerticalAlignment="Top"/>
@@ -30,13 +30,13 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="Table" Header="Table">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid/>
             </TabItem>
             <TabItem x:Name="Meal" Header="Meal">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid/>
             </TabItem>
             <TabItem x:Name="Stats" Header="Stats">
-                <Grid Background="#FFE5E5E5">
+                <Grid>
                     <Label Content="Sort by:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.47,0.523"/>
                     <ComboBox HorizontalAlignment="Left" Margin="65,14,0,0" VerticalAlignment="Top" Width="120"/>
                     <DataGrid Name="WaiterGrid" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="211" Width="461"/>
@@ -44,6 +44,25 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Go back" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="75" Click="ChangeControl"/>
+        <Button HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="75" Click="ChangeControl" BorderBrush="{x:Null}" Background="{x:Null}">
+            <StackPanel Orientation="Horizontal">
+                <Canvas Width="20" Height="20">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_base}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Width="10" Height="10" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" Margin="5,5,0,0">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_arrow_left}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Canvas>
+                
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="back" FontSize="14.667"/>
+            </StackPanel>
+        </Button>
+
     </Grid>
+    
 </UserControl>
