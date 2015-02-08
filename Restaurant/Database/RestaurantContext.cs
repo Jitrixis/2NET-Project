@@ -8,11 +8,18 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Restaurant.Database
 {
-    class RestaurantContext : DbContext
+    public class RestaurantContext : DbContext
     {
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<Waiter> Waiters { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Waiter>().HasMany(p => p.Bills);
+            modelBuilder.Entity<Bill>().HasMany(m => m.Meals).WithMany();
+            modelBuilder.Entity<Table>().HasMany(t => t.Bills);
+        }
     }
 }

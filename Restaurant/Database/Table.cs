@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Database
 {
-    class Table
+    public class Table
     {
         public Table() {
             Bills = new List<Bill>();
@@ -17,6 +17,6 @@ namespace Restaurant.Database
 
         public int Chair_number { get; set; }
 
-        public virtual List<Bill> Bills { get; set; }
+        public List<Bill> Bills { get; set; }
     }
 }

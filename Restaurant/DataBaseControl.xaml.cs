@@ -22,10 +22,10 @@ namespace Restaurant
     public partial class DataBaseControl : UserControl
     {
         private RestaurantContext database;
-        public DataBaseControl()
+        public DataBaseControl(ref RestaurantContext db)
         {
             InitializeComponent();
-            database = new RestaurantContext();
+            database = db;
             System.Windows.Threading.DispatcherTimer messageTimer = new System.Windows.Threading.DispatcherTimer();
             messageTimer.Tick += new EventHandler(messageTimer_Tick);
             messageTimer.Interval = new TimeSpan(0, 0, 0, 8);
@@ -34,14 +34,8 @@ namespace Restaurant
 
         private void messageTimer_Tick(object sender, EventArgs e)  //Not called need to be fixed
         {
-            //if (WaiterStatus.Content.ToString() != "Waiting...")
-           // {
-                WaiterStatus.Content = "Waiting...";
-            //}
-            //if (TableStatus.Content.ToString() != "Waiting...")
-           // {
-                TableStatus.Content = "Waiting...";
-            //}
+            WaiterStatus.Content = "Waiting...";
+            TableStatus.Content = "Waiting...";
         }
 
         public void BindWaiterComboBox()
@@ -85,7 +79,7 @@ namespace Restaurant
 
         private void ChangeControl(object sender, RoutedEventArgs e)
         {
-            this.Content = new MainControl();
+            this.Content = new MainControl(ref database);
         }
 
         private void LoadWaiter(object sender, ContextMenuEventArgs e)

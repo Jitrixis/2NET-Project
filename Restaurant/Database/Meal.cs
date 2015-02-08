@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Database
 {
-    class Meal
+    public class Meal
     {
         public int MealId { get; set; }
 

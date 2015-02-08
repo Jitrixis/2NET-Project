@@ -29,10 +29,17 @@ namespace Restaurant
             LoadTables();
         }
 
+        public MainControl(ref RestaurantContext db)
+        {
+            InitializeComponent();
+            database = db;
+            LoadTables();
+        }
+
         private void GoToDatabase(object sender, RoutedEventArgs e)
         {
             {
-                this.Content = new DataBaseControl();
+                this.Content = new DataBaseControl(ref database);
             }
         }
 
@@ -76,7 +83,7 @@ namespace Restaurant
 
             if (Int32.TryParse(number_str, out id))
             {
-                this.Content = new BillControl(id);
+                this.Content = new BillControl(id, ref database);
             }
             // identify which button was clicked and perform necessary actions
         }

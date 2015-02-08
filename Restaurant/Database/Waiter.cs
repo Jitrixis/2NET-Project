@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Database
 {
-    class Waiter
+    public class Waiter
     {
         public Waiter() {
             Bills = new List<Bill>();
