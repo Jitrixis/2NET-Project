@@ -193,6 +193,7 @@ namespace Restaurant
             database.Waiters.Add(waiter);
             database.SaveChanges();
             WaiterStatus.Content = "Waiter created";
+            
             BindWaiterComboBox();
         }
     }

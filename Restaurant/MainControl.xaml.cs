@@ -16,12 +16,15 @@ using Restaurant.Database;
 
 namespace Restaurant
 {
+
     /// <summary>
     /// Logique d'interaction pour UserControl1.xaml
     /// </summary>
     public partial class MainControl : UserControl
     {
         private RestaurantContext database;
+
+        public int TableAddNb = 0;
         public MainControl()
         {
             InitializeComponent();
@@ -53,8 +56,10 @@ namespace Restaurant
         private void Addtable(object sender, RoutedEventArgs e)
         {
             System.Windows.Controls.Button newBtn = new Button();
+            MahApps.Metro.Controls.Tile newTile = new MahApps.Metro.Controls.Tile { Title = "Table " + TableAddNb.ToString() };
+            TableAddNb++;
             newBtn.Content = "A New Button";
-            Wrap.Children.Add(newBtn);
+            Wrap.Children.Add(newTile);
         }
     }
 }
