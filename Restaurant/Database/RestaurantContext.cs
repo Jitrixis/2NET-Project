@@ -18,7 +18,6 @@ namespace Restaurant.Database
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Waiter>().HasMany(p => p.Bills);
-            modelBuilder.Entity<Bill>().HasMany(m => m.Meals).WithMany();
             modelBuilder.Entity<Table>().HasMany(t => t.Bills);
         }
     }

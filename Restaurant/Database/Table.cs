@@ -17,6 +17,6 @@ namespace Restaurant.Database
 
         public int Chair_number { get; set; }
 
-        public List<Bill> Bills { get; set; }
+        public virtual List<Bill> Bills { get; set; }
     }
 }

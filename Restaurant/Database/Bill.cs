@@ -9,7 +9,7 @@ namespace Restaurant.Database
     public class Bill
     {
         public Bill() {
-            Meals = new List<Meal>();
+            string_Meals = new List<string>();
         }
 
         public int BillId { get; set; }
@@ -22,6 +22,6 @@ namespace Restaurant.Database
 
         public virtual Table Table { get; set; }
 
-        public virtual List<Meal> Meals { get; set; }
+        public virtual List<string> string_Meals { get; set; }
     }
 }
