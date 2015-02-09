@@ -55,7 +55,7 @@ namespace Restaurant
             {
                 //create a button
                 System.Windows.Controls.Button Tablebutton = new Button();
-                Tablebutton.Content = String.Format("Table {0}\n-{1} {2}-", item.TableId, item.Chair_number, item.Chair_number > 1?"people":"peoples");
+                Tablebutton.Content = string.Format("Table {0}\n-{1} {2}-", item.TableId, item.Chair_number, item.Chair_number > 1?"people":"peoples");
                 Tablebutton.Height = 100;
                 Tablebutton.Width = 100;
                 Tablebutton.Margin = new System.Windows.Thickness(5);
@@ -68,6 +68,7 @@ namespace Restaurant
                     Tablebutton.Background = Brushes.Red;
                 }
                 Tablebutton.Click += new RoutedEventHandler(Tablebutton_Click);
+                //Tablebutton.
                 Wrap.Children.Add(Tablebutton);
             }
         }

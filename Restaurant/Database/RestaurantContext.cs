@@ -14,6 +14,7 @@ namespace Restaurant.Database
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<Waiter> Waiters { get; set; }
+        public DbSet<MealString> Strings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

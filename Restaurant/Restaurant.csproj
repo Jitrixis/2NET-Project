@@ -92,6 +92,7 @@
     <Compile Include="Database\Bill.cs" />
     <Compile Include="Database\Meal.cs" />
     <Compile Include="Database\RestaurantContext.cs" />
+    <Compile Include="Database\MealString.cs" />
     <Compile Include="Database\Table.cs" />
     <Compile Include="Database\Waiter.cs" />
     <Compile Include="MainControl.xaml.cs">
