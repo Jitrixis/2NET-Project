@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using Restaurant.Database;
 
 namespace Restaurant
 {
@@ -21,10 +22,18 @@ namespace Restaurant
     /// </summary>
     public partial class MainWindow
     {
+        public RestaurantContext database;
         public MainWindow()
         {
+            database = new RestaurantContext();
             InitializeComponent();
-            this.Content = new MainControl();
+            this.Content = new MainControl(ref database);
+        }
+        private void GoToDatabase(object sender, RoutedEventArgs e)
+        {
+            {
+                this.Content = new DataBaseControl(ref database);
+            }
         }
     }
 }

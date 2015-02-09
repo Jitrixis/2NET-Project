@@ -40,6 +40,7 @@ namespace Restaurant
         {
             {
                 this.Content = new DataBaseControl(ref database);
+                
             }
         }
 

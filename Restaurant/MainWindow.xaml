@@ -5,7 +5,7 @@
         Title="OnMyWay" Height="610" Width="815">
     <Controls:MetroWindow.RightWindowCommands>
     <Controls:WindowCommands>
-            <Button Content="Settings"/>
+            <Button x:Name="settings" Content="Settings" Click="GoToDatabase"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>

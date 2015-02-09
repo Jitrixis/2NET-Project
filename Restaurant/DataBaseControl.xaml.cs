@@ -134,7 +134,7 @@ namespace Restaurant
         {
             foreach (DataGridColumn col in WaiterGrid.Columns)
             {
-                if (col.Header == "Bills") {
+                if (col.Header.ToString() == "Bills") {
                     col.Visibility = Visibility.Collapsed;
                 }
             }
