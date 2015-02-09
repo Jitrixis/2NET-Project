@@ -9,6 +9,6 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid Background="#FFE5E5E5">
-        
+        <Label x:Name="label" Content="Chargement de la base de donnée" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
     </Grid>
 </Controls:MetroWindow>
