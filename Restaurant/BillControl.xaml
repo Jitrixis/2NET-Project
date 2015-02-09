@@ -7,7 +7,23 @@
              d:DesignHeight="580" d:DesignWidth="800">
     <Grid>
         <Label Content="Bill" HorizontalAlignment="Left" Margin="34,36,0,0" VerticalAlignment="Top" Height="53" Width="74" FontSize="28"/>
-        <Button Content="Go back" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="75" Click="ChangeControl"/>
+        <Button HorizontalAlignment="Right" Margin="0,10,10,0" Width="75" Click="ChangeControl" BorderBrush="{x:Null}" Background="{x:Null}" Height="32" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <Canvas Width="20" Height="20">
+                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_base}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Width="10" Height="10" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" Margin="5,5,0,0">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_arrow_left}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Canvas>
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="back" FontSize="14.667"/>
+            </StackPanel>
+        </Button>
         <WrapPanel Name="WrapMeals" HorizontalAlignment="Left" Height="419" Margin="75,108,0,0" VerticalAlignment="Top" Width="200"/>
 
         <Label Content="Serveur :" HorizontalAlignment="Left" Margin="463,183,0,0" VerticalAlignment="Top" Width="74" FontSize="16"/>

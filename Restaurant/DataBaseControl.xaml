@@ -6,9 +6,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="580" d:DesignWidth="800">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" SelectionChanged="LoadTab">
-            <TabItem x:Name="Waiter" Header="Waiter">
-                <Grid Background="#FFE5E5E5" Margin="0,0,0,2">
+        <TabControl Margin="10" SelectionChanged="LoadTab">
+            <TabItem x:Name="Waiter" Header="Waiter" Margin="105,0,0,0" Padding="12,2,12,1" Width="205">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
                     <Label Content="Creation" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
                     <Label Content="FirstName" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
                     <Label Content="LastName" HorizontalAlignment="Left" Margin="31,165,0,0" VerticalAlignment="Top"/>
@@ -16,21 +20,21 @@
                     <TextBox Name="LastName" HorizontalAlignment="Left" Height="23" Margin="109,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
                     <Button Content="Add waiter" HorizontalAlignment="Left" Margin="214,221,0,0" VerticalAlignment="Top" Width="88" Click="AddWaiter"/>
 
-                    <Label Content="Modification" HorizontalAlignment="Left" Margin="363,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
-                    <ComboBox Name="ComboWaiter" HorizontalAlignment="Left" Margin="484,96,0,0" VerticalAlignment="Top" Width="194" Height="20" SelectionChanged="UpdateBox"/>
-                    <Label Content="Selection" HorizontalAlignment="Left" Margin="403,90,0,0" VerticalAlignment="Top"/>
-                    <Label Content="FirstName" HorizontalAlignment="Left" Margin="402,134,0,0" VerticalAlignment="Top"/>
-                    <Label Content="LastName" HorizontalAlignment="Left" Margin="403,165,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="FirstNameModify" HorizontalAlignment="Left" Height="23" Margin="484,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
-                    <TextBox x:Name="LastNameModify" HorizontalAlignment="Left" Height="23" Margin="484,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
-                    <Button Content="Update waiter" HorizontalAlignment="Left" Margin="484,221,0,0" VerticalAlignment="Top" Width="91" Click="UpdateWaiter"/>
-                    <Button Content="Delete waiter" HorizontalAlignment="Left" Margin="589,221,0,0" VerticalAlignment="Top" Width="89" Click="DeleteWaiter"/>
+                    <Label Content="Modification" HorizontalAlignment="Left" Margin="363,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22" Grid.ColumnSpan="2"/>
+                    <ComboBox Name="ComboWaiter" HorizontalAlignment="Left" Margin="97,96,0,0" VerticalAlignment="Top" Width="194" Height="20" SelectionChanged="UpdateBox" Grid.Column="1"/>
+                    <Label Content="Selection" HorizontalAlignment="Left" Margin="16,90,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="FirstName" HorizontalAlignment="Left" Margin="15,134,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="LastName" HorizontalAlignment="Left" Margin="16,165,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="FirstNameModify" HorizontalAlignment="Left" Height="23" Margin="97,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" Grid.Column="1"/>
+                    <TextBox x:Name="LastNameModify" HorizontalAlignment="Left" Height="23" Margin="97,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" Grid.Column="1"/>
+                    <Button Content="Update waiter" HorizontalAlignment="Left" Margin="97,221,0,0" VerticalAlignment="Top" Width="91" Click="UpdateWaiter" Grid.Column="1"/>
+                    <Button Content="Delete waiter" HorizontalAlignment="Left" Margin="202,221,0,0" VerticalAlignment="Top" Width="89" Click="DeleteWaiter" Grid.Column="1"/>
 
-                    <Label Name="WaiterStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="10,479,0,0" VerticalAlignment="Top" Height="37" Width="184" FontSize="18"/>
+                    <Label Name="WaiterStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="10,479,0,-3" VerticalAlignment="Top" Height="37" Width="184" FontSize="18"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Table" Header="Table">
-                <Grid Background="#FFE5E5E5">
+            <TabItem x:Name="Table" Header="Table" Padding="12,2">
+                <Grid>
                     <Label Content="Creation" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
                     <Label Content="Seat Number" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
                     <Label Content="Status" HorizontalAlignment="Left" Margin="31,165,0,0" VerticalAlignment="Top"/>
@@ -57,8 +61,8 @@
                     <Label Name="TableStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="10,481,0,0" VerticalAlignment="Top" Height="37" Width="435" FontSize="18"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Meal" Header="Meal">
-                <Grid Background="#FFE5E5E5">
+            <TabItem x:Name="Meal" Header="Meal" Padding="12,2">
+                <Grid>
                     <Label Content="Creation" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="42" Width="143" FontSize="22"/>
                     <Label Content="Price" HorizontalAlignment="Left" Margin="30,134,0,0" VerticalAlignment="Top"/>
                     <Label Content="Name" HorizontalAlignment="Left" Margin="31,165,0,0" VerticalAlignment="Top"/>
@@ -79,18 +83,34 @@
                     <Label Name="MealStatus" Content="Waiting..." HorizontalAlignment="Left" Margin="10,481,0,0" VerticalAlignment="Top" Height="37" Width="435" FontSize="18"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Stats" Header="Stats">
-                <Grid Background="#FFE5E5E5">
+            <TabItem x:Name="Stats" Header="Stats" Padding="12,2">
+                <Grid>
                     <Label Content="Sort by:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.47,0.523"/>
                     <ComboBox HorizontalAlignment="Left" Margin="65,14,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem Content="Table served"/>
                         <ComboBoxItem Content="Bills price sum"/>
                     </ComboBox>
-                    <DataGrid Name="WaiterGrid" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="211" Width="461"/>
+                    <DataGrid Name="WaiterGrid" Margin="10,53,10,10"/>
                     <Button Content="Debug" HorizontalAlignment="Left" Margin="372,16,0,0" VerticalAlignment="Top" Width="75" Click="UpdateDebug"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="Go back" HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="75" Click="ChangeControl"/>
+        <Button Margin="10,12,0,0" VerticalAlignment="Top" Click="ChangeControl" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Left" Width="100" Height="40" Foreground="White">
+            <StackPanel Orientation="Horizontal">
+                <Canvas Width="30" Height="30">
+                    <Rectangle Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_base}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Width="16" Height="16" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" Margin="7,7,0,0">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_arrow_left}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Canvas>
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="back" FontSize="20" FontWeight="Normal" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>

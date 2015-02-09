@@ -5,10 +5,10 @@
         Title="OnMyWay" Height="610" Width="815">
     <Controls:MetroWindow.RightWindowCommands>
     <Controls:WindowCommands>
-            <Button x:Name="settings" Content="Settings" Click="GoToDatabase"/>
+            <Button x:Name="settings" Content="Settings" Click="GoToDatabase" Background="#FFAC0000"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <Grid>
+    <Grid Background="#FFE5E5E5">
         
     </Grid>
 </Controls:MetroWindow>

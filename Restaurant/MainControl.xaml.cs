@@ -55,31 +55,37 @@ namespace Restaurant
             foreach (var item in query)
             {
                 //create a button
-                System.Windows.Controls.Button Tablebutton = new Button();
+                MahApps.Metro.Controls.Tile TableTile = new MahApps.Metro.Controls.Tile {
+                    Title = string.Format("Table {0}", item.TableId) ,
+                    Content = string.Format("{0} {1}", item.Chair_number, item.Chair_number > 1 ? "people" : "peoples"),
+                    Tag = item.TableId
+                };
+                /*System.Windows.Controls.Button Tablebutton = new Button();
                 Tablebutton.Content = string.Format("Table {0}\n-{1} {2}-", item.TableId, item.Chair_number, item.Chair_number > 1?"people":"peoples");
                 Tablebutton.Height = 100;
                 Tablebutton.Width = 100;
-                Tablebutton.Margin = new System.Windows.Thickness(5);
+                Tablebutton.Margin = new System.Windows.Thickness(5);*/
                 if (item.isEmpty)
                 {
-                    Tablebutton.Background = Brushes.Green;
+                    //Tablebutton.Background = Brushes.Green;
+                    TableTile.Background = Brushes.DarkGreen;
                 }
                 else
                 {
-                    Tablebutton.Background = Brushes.Red;
+                    //Tablebutton.Background = Brushes.Red;
+                    TableTile.Background = Brushes.Gray;
                 }
-                Tablebutton.Click += new RoutedEventHandler(Tablebutton_Click);
+                //Tablebutton.Click += new RoutedEventHandler(Tablebutton_Click);
                 //Tablebutton.
-                Wrap.Children.Add(Tablebutton);
+                TableTile.Click += new RoutedEventHandler(Tablebutton_Click);
+                Wrap.Children.Add(TableTile);
             }
         }
 
         private void Tablebutton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            string number_str = button.Content.ToString().Split('-')[0]; //Remove the end of content
-            number_str = number_str.Remove(0, 6);       //Remove "Table "
-            number_str = number_str.Replace("\n", string.Empty);  //Remove "\n"
+            string number_str = button.Tag.ToString();
 
             int id = -1;
 
