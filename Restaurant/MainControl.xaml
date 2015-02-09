@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid Background="#FFE5E5E5">
-        <WrapPanel Name="Wrap" Margin="10" ScrollViewer.CanContentScroll="True"/>
+        <WrapPanel Name="Wrap" Margin="10"/>
     </Grid>
 </UserControl>
