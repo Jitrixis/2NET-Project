@@ -4,11 +4,14 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="OnMyWay" Height="610" Width="815">
     <Controls:MetroWindow.RightWindowCommands>
-    <Controls:WindowCommands>
+        <Controls:WindowCommands>
             <Button x:Name="settings" Content="Settings" Click="GoToDatabase" Background="#FFAC0000"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid Background="#FFE5E5E5">
-        <Label x:Name="label" Content="Chargement de la base de donnée" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+        <StackPanel HorizontalAlignment="Center" Height="135" Margin="0,0,0,0" VerticalAlignment="Center" Width="524">
+            <Label Foreground="#FF525252" x:Name="label" Content="Chargement de la base de donnée" Margin="10,0" VerticalAlignment="Top" Grid.Column="1" FontSize="32" Height="70"/>
+            <Controls:ProgressRing IsActive="True" Foreground="{DynamicResource AccentColorBrush}"/>
+        </StackPanel>
     </Grid>
 </Controls:MetroWindow>

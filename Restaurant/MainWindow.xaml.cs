@@ -25,8 +25,10 @@ namespace Restaurant
         public RestaurantContext database;
         public MainWindow()
         {
-            database = new RestaurantContext();
             InitializeComponent();
+            database = new RestaurantContext();
+            var init = from test in database.Tables
+                       select test;
             this.Content = new MainControl(ref database);
         }
         private void GoToDatabase(object sender, RoutedEventArgs e)

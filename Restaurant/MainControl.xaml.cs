@@ -64,7 +64,7 @@ namespace Restaurant
                 Tablebutton.Content = string.Format("Table {0}\n-{1} {2}-", item.TableId, item.Chair_number, item.Chair_number > 1?"people":"peoples");
                 Tablebutton.Height = 100;
                 Tablebutton.Width = 100;
-                Tablebutton.Margin = new System.Windows.Thickness(5);*/
+                Tablebutton.Margin = new System.Windows.Thickness(5, 5, 5, 5);*/
                 if (item.isEmpty)
                 {
                     //Tablebutton.Background = Brushes.Green;
