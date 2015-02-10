@@ -52,6 +52,7 @@ namespace Restaurant
             ComboWaiter.ItemsSource = waiter.ToList();
             ComboWaiter.DisplayMemberPath = "FirstName";
             ComboWaiter.SelectedValuePath = "WaiterId";
+            ComboWaiter.SelectedIndex = 0;
 
             var table = from b in database.Tables
                         where b.TableId == index
@@ -66,6 +67,7 @@ namespace Restaurant
             {
                 empty = true;
                 BillPayment.IsEnabled = false;
+                CancelButton.IsEnabled = false;
                 ComboStatus.SelectedIndex = 0;
                 ComboStatus.IsEnabled = false;
 
@@ -209,7 +211,7 @@ namespace Restaurant
 
             database.Bills.Remove(last_bill);
             database.SaveChanges();
-
+            this.Content = new BillControl(index, ref database);
         }
     }
 }

@@ -37,6 +37,6 @@
         <Button Name="BillPayment" Content="Pay bill" HorizontalAlignment="Left" Margin="579,520,0,0" VerticalAlignment="Top" Width="183" Click="PayBill" Height="34" FontSize="18"/>
         <Label Content="Total Price:" HorizontalAlignment="Left" Margin="34,532,0,0" VerticalAlignment="Top" Width="108" FontSize="16"/>
         <Label Name="TotalBill" Content="0.0" HorizontalAlignment="Left" Margin="142,537,0,0" VerticalAlignment="Top" Width="168"/>
-        <Button Content="Cancel Bill" HorizontalAlignment="Left" Margin="403,520,0,0" VerticalAlignment="Top" Width="163" Height="34" Click="Cancel_Bill"/>
+        <Button Name="CancelButton" Content="Cancel Bill" HorizontalAlignment="Left" Margin="403,520,0,0" VerticalAlignment="Top" Width="163" Height="34" Click="Cancel_Bill"/>
     </Grid>
 </UserControl>

@@ -139,6 +139,7 @@ namespace Restaurant
             database.SaveChanges();
             WaiterStatus.Content = "Waiter created";
             BindWaiterComboBox();
+            
         }
 
         private void DeleteWaiter(object sender, RoutedEventArgs e)
@@ -456,14 +457,6 @@ namespace Restaurant
             else if(SortBox.SelectedIndex == 1)
             {
 
-                //var subquery = 
-
-                /*var query = from w in database.Waiters
-                            orderby (var subquery = from b in database.Bills 
-                                                        where b.WaiterId = w)
-                            select w;
-
-                WaiterGrid.ItemsSource = query.ToList();*/
             }
         }
     }
