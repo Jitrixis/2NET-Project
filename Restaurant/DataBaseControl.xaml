@@ -86,12 +86,11 @@
             <TabItem x:Name="Stats" Header="Stats" Padding="12,2">
                 <Grid>
                     <Label Content="Sort by:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.47,0.523"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="65,14,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBox Name="SortBox" HorizontalAlignment="Left" Margin="65,14,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="UpdateWaiterOrder">
                         <ComboBoxItem Content="Table served"/>
                         <ComboBoxItem Content="Bills price sum"/>
                     </ComboBox>
                     <DataGrid Name="WaiterGrid" Margin="10,53,10,10"/>
-                    <Button Content="Debug" HorizontalAlignment="Left" Margin="372,16,0,0" VerticalAlignment="Top" Width="75" Click="UpdateDebug"/>
                 </Grid>
             </TabItem>
         </TabControl>

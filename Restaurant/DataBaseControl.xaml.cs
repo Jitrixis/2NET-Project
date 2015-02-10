@@ -70,10 +70,6 @@ namespace Restaurant
 
         public void BindWaiterStats()
         {
-            var query = from b in database.Waiters
-                        select b;
-
-            WaiterGrid.ItemsSource = query.ToList();
         }
 
 
@@ -127,18 +123,8 @@ namespace Restaurant
             if (Stats.IsSelected)
             {
                 BindWaiterStats();
+                UpdateWaiterOrder();
             }
-        }
-
-        private void UpdateDebug(object sender, RoutedEventArgs e)
-        {
-            foreach (DataGridColumn col in WaiterGrid.Columns)
-            {
-                if (col.Header.ToString() == "Bills") {
-                    col.Visibility = Visibility.Collapsed;
-                }
-            }
-            WaiterGrid.Columns[3].Visibility = Visibility.Collapsed;
         }
 
         private void AddWaiter(object sender, RoutedEventArgs e)
@@ -449,6 +435,35 @@ namespace Restaurant
                         MealPriceModify.Text = item.Price.ToString();
                     }
                 }
+            }
+        }
+
+        private void UpdateWaiterOrder(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateWaiterOrder();
+        }
+
+        private void UpdateWaiterOrder()
+        {
+            if (SortBox.SelectedIndex == 0)
+            {
+                var query = from b in database.Waiters
+                            orderby b.Bills.Count 
+                            select b;
+
+                WaiterGrid.ItemsSource = query.ToList();
+            }
+            else if(SortBox.SelectedIndex == 1)
+            {
+
+                //var subquery = 
+
+                /*var query = from w in database.Waiters
+                            orderby (var subquery = from b in database.Bills 
+                                                        where b.WaiterId = w)
+                            select w;
+
+                WaiterGrid.ItemsSource = query.ToList();*/
             }
         }
     }

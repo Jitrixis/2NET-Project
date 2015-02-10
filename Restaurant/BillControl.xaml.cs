@@ -112,6 +112,7 @@ namespace Restaurant
                 }
 
                 ComboWaiter.SelectedValue = last_bill.WaiterId;
+                ComboWaiter.IsEnabled = false;
                 TotalBill.Content = last_bill.BillPrice.ToString() + " $";
             }
         }
