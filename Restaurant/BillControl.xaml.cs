@@ -67,7 +67,6 @@ namespace Restaurant
             {
                 empty = true;
                 BillPayment.IsEnabled = false;
-                CancelButton.IsEnabled = false;
                 ComboStatus.SelectedIndex = 0;
                 ComboStatus.IsEnabled = false;
 
